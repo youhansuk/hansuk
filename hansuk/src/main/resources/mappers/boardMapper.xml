@@ -10,6 +10,14 @@ SELECT
 IDX, DK_BOOK_IDX, GRADATIONS, QUESTION, ANSWER, USE_YN	
 FROM			
 DK_BOOK_QUIZ	
+LIMIT #{startList},#{listSize}
 </select>
 
+
+<select id="getBoardListCnt" resultType="int">
+SELECT
+count(*) as listCnt
+FROM
+DK_BOOK_QUIZ
+</select>
 </mapper>

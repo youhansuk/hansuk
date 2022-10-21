@@ -25,7 +25,9 @@ public class MybatisTest {
 	public void testSessionFactory() {
 		logger.info("\n Session Factory : " + sessionFactory);
 	}
-
+    
+	
+	
 	@Test
 	public void testSqlSession() {
 		try (SqlSession session = sessionFactory.openSession()) {

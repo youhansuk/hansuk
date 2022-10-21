@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-
+import com.hansuk.web.common.Pagination;
 import com.hansuk.web.dao.BoardDAO;
 import com.hansuk.web.model.BoardVO;
 
