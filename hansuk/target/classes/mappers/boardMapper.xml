@@ -5,19 +5,46 @@
 
 <mapper namespace="com.hansuk.web.board.boardMapper">
 
-<select id="getBoardList" resultType="com.hansuk.web.model.BoardVO">		
-SELECT			
-IDX, DK_BOOK_IDX, GRADATIONS, QUESTION, ANSWER, USE_YN	
-FROM			
-DK_BOOK_QUIZ	
-LIMIT #{startList},#{listSize}
-</select>
+	<select id="getBoardList"
+		resultType="com.hansuk.web.model.BoardVO">
+		SELECT
+		IDX, DK_BOOK_IDX, GRADATIONS, QUESTION, ANSWER, USE_YN
+		FROM
+		DK_BOOK_QUIZ
+		LIMIT #{startList},#{listSize}
+	</select>
 
 
 <select id="getBoardListCnt" resultType="int">
-SELECT
-count(*) as listCnt
-FROM
-DK_BOOK_QUIZ
+    SELECT
+    count(*) as listCnt
+    FROM
+	DK_BOOK_QUIZ
 </select>
+
+<select id="getBoardContent" resultType="com.hansuk.web.model.BoardVO" parameterType="com.hansuk.web.model.BoardVO"> 
+	SELECT IDX, DK_BOOK_IDX, GRADATIONS, QUESTION, ANSWER, USE_YN
+	FROM DK_BOOK_QUIZ WHERE IDX = #{idx}	
+</select>
+	
+<insert id="insertBoard" parameterType="com.hansuk.web.model.BoardVO"> 
+        INSERT INTO DK_BOOK_QUIZ (IDX, DK_BOOK_IDX, GRADATIONS, QUESTION, ANSWER, USE_YN)
+		VALUES ( #{dk_book_idx} , #{gradations} ,
+		#{question} , #{answer},#{use_yn} )	
+</insert>
+	
+	<update id="updateBoard" parameterType="com.hansuk.web.model.BoardVO"> 
+	UPDATE DK_BOOK_QUIZ SET DK_BOOK_IDX = #{dk_book_idx} , GRADATIONS =
+		#{gradations} , QUESTION = #{question} , ANSWER = #{answer}, USE_YN = #{use_yn} WHERE
+		IDX = ${idx}	
+		</update>
+	
+<delete id="deleteBoard" parameterType="int"> 
+	DELETE FROM DK_BOOK_QUIZ WHERE IDX = #{idx}
+</delete>
+	
+<update id="updateViewCnt" parameterType="com.hansuk.web.model.BoardVO"> 
+UPDATE DK_BOOK_QUIZ SET DK_BOOK_IDX = DK_BOOK_IDX  WHERE IDX =#{idx}	
+</update>
+
 </mapper>

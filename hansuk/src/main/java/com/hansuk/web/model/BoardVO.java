@@ -4,9 +4,12 @@ public class BoardVO {
    
 	public int idx;
 	public int dk_book_idx;
-	public int gradations;;
+	public int gradations;
 	public String question;
 	public String answer;
+	
+	
+
 	public String use_yn;
 	
 	public int getIdx() {

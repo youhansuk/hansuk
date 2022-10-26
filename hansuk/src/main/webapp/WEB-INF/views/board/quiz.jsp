@@ -45,11 +45,30 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-
 GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
 crossorigin="anonymous">
-
+<style>
+ body {
+      padding-top: 70px;
+      padding-bottom : 30px;
+ }
+</style>
+<script>
+  $(document).on('click','#btnWriteForm', function(e){
+	 e.preventDefault();
+	 
+	 location.href="${pageContext.request.contextPath}/board/boardForm";
+	  
+  });
+  
+  function fn_contentView(idx){
+	  var url = "${pageContext.request.contextPath}/board/getBoardContent";
+	  url = url + "?idx=" + idx;
+	  location.href = url;
+  }
+</script>
 </head>
 <body>
 
-	<h2>board list</h2>
+	<h2>Quiz List</h2>
 	<article>
 	<div class="container">
 	<div class="table-responsive">
@@ -80,7 +99,8 @@ crossorigin="anonymous">
 					<td><c:out value="${list.idx}" /></td>
 					<td><c:out value="${list.dk_book_idx}" /></td>
 					<td><c:out value="${list.gradations}" /></td>
-					<td><c:out value="${list.question}" /></td>
+					<td><a href="#" onClick="fn_contentView(<c:out value="${list.idx}"/>)">
+					<c:out value="${list.question}" /></a></td>
 					<td><c:out value="${list.answer}" /></td>
 					<td><c:out value="${list.use_yn}" /></td>
 				</tr>
@@ -88,6 +108,10 @@ crossorigin="anonymous">
 
 		</tbody>
 	</table>
+	</div>
+	<div>
+	  <button type="button" class="btn btn-sm btn-primary" id="btnWriteForm">퀴즈 작성하기</button>
+	  </div>
 	</div>
 	</div>
 	</article>

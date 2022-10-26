@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+body {
+	  padding-top: 70px;
+	  padding-bottom: 30px;
+}
+
+.board_question {
+	font-weight: 700;
+	font-size: 22pt;
+	margin: 10pt;
+}
+
+.board_quiz_box {
+	color: #6B6B6B;
+	margin: 10pt;
+}
+
+.board_dk_book_idx {
+	font-size: 5pt;
+	margin-right: 10pt;
+}
+
+
+
+
+.board_answer {
+	font-size: 11pt;
+	margin: 10pt;
+	padding-bottom: 10pt;
+}

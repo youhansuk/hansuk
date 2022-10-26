@@ -17,14 +17,27 @@ import com.hansuk.web.model.BoardVO;
 		@Inject	
 		private BoardDAO boardDAO;		
 		
+		//게시물 리스트
 		public List<BoardVO> getBoardList(Pagination pagination) throws Exception {		
 			return boardDAO.getBoardList(pagination);	
 			}
 		
-		
+		//총 개수
 		@Override
 		public int getBoardListCnt() throws Exception {
 			return boardDAO.getBoardListCnt();
 		}
+		
+		// 글 등록
+		@Override
+		public void insertBoard(BoardVO boardVO) throws Exception {
+			boardDAO.insertBoard(boardVO);
+		}
+		// 상세조회
+		public BoardVO getBoardContent(int idx) throws Exception {
+			boardDAO.updateViewCnt(idx);
+			return boardDAO.getBoardContent(idx);
+		}
+		
 	}
 	

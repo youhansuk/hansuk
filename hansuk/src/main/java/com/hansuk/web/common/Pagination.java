@@ -3,17 +3,17 @@ package com.hansuk.web.common;
 public class Pagination {
     
 	
-	private int listSize = 10;
+	private int listSize = 10;     //한 페이지 목록 개수
 	private int rangeSize =10;
 	private int page;          //현재페이지
 	private int range;            //현재 페이지 범위 정보
 	private int listCnt;            //게시물 총 개수
-	private int pageCnt;
-	private int startPage;
-	private int startList;
-	private int endPage;
-	private boolean prev;
-	private boolean next;
+	private int pageCnt;          //총 페이지 범위 개수
+	private int startPage;         //시작번호
+	private int startList;         
+	private int endPage;           //끝 번호
+	private boolean prev;           //이전 페이지
+	private boolean next;           //다음 페이지
 	
 	public int getListSize() {
 		return listSize;
